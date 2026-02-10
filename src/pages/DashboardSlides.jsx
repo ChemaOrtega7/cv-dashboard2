@@ -366,12 +366,12 @@ const DashboardSlides = () => {
         <div className="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
           <h1 className="text-lg font-bold text-cyan-400">José Manuel Ortega</h1>
           
-          {/* Navigation Buttons */}
-          <nav className="flex gap-4 items-center">
+          {/* Navigation Buttons - Expanded across */}
+          <nav className="flex-1 flex justify-center gap-8 items-center mx-12">
             <Button
               onClick={() => setCurrentSlide(0)}
               variant={currentSlide === 0 ? "default" : "ghost"}
-              size="sm"
+              size="lg"
               className={currentSlide === 0 ? "bg-cyan-600 text-white" : "text-slate-300 hover:text-cyan-400"}
             >
               {t.nav.about}
@@ -379,7 +379,7 @@ const DashboardSlides = () => {
             <Button
               onClick={() => setCurrentSlide(1)}
               variant={currentSlide === 1 ? "default" : "ghost"}
-              size="sm"
+              size="lg"
               className={currentSlide === 1 ? "bg-cyan-600 text-white" : "text-slate-300 hover:text-cyan-400"}
             >
               {t.nav.experience}
@@ -387,7 +387,7 @@ const DashboardSlides = () => {
             <Button
               onClick={() => setCurrentSlide(2)}
               variant={currentSlide === 2 ? "default" : "ghost"}
-              size="sm"
+              size="lg"
               className={currentSlide === 2 ? "bg-cyan-600 text-white" : "text-slate-300 hover:text-cyan-400"}
             >
               {t.nav.skills}
@@ -395,23 +395,23 @@ const DashboardSlides = () => {
             <Button
               onClick={() => setCurrentSlide(3)}
               variant={currentSlide === 3 ? "default" : "ghost"}
-              size="sm"
+              size="lg"
               className={currentSlide === 3 ? "bg-cyan-600 text-white" : "text-slate-300 hover:text-cyan-400"}
             >
               {t.nav.education}
             </Button>
-
-            {/* Language Toggle */}
-            <Button 
-              onClick={toggleLanguage}
-              variant="outline"
-              size="sm"
-              className="border-slate-700 text-slate-300 hover:bg-slate-800 hover:text-cyan-400"
-            >
-              <Languages className="w-4 h-4 mr-1" />
-              {language === 'en' ? 'ES' : 'EN'}
-            </Button>
           </nav>
+
+          {/* Language Toggle - Right side */}
+          <Button 
+            onClick={toggleLanguage}
+            variant="outline"
+            size="sm"
+            className="border-slate-700 text-slate-300 hover:bg-slate-800 hover:text-cyan-400"
+          >
+            <Languages className="w-4 h-4 mr-1" />
+            {language === 'en' ? 'ES' : 'EN'}
+          </Button>
         </div>
       </header>
 
