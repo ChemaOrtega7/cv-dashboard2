@@ -4,7 +4,8 @@ import { useLanguage } from '../context/LanguageContext';
 import { getText, getTextArray } from '../utils/languageHelpers';
 import { 
   Briefcase, Award, Code, Mail, Phone, MapPin, 
-  Download, Languages, TrendingUp, Target, Calendar
+  Download, Languages, TrendingUp, Target, Calendar,
+  ChevronDown, ChevronUp
 } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '../components/ui/card';
