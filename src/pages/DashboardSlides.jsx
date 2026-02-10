@@ -370,33 +370,37 @@ const DashboardSlides = () => {
           <nav className="flex-1 flex justify-center gap-8 items-center mx-12">
             <Button
               onClick={() => setCurrentSlide(0)}
-              variant={currentSlide === 0 ? "default" : "ghost"}
               size="lg"
-              className={currentSlide === 0 ? "bg-cyan-600 text-white" : "text-slate-300 hover:text-cyan-400"}
+              className={currentSlide === 0 
+                ? "bg-cyan-300 text-slate-900 hover:bg-cyan-200 px-8 py-6 text-lg font-semibold" 
+                : "bg-white text-cyan-600 hover:bg-cyan-50 px-8 py-6 text-lg font-semibold"}
             >
               {t.nav.about}
             </Button>
             <Button
               onClick={() => setCurrentSlide(1)}
-              variant={currentSlide === 1 ? "default" : "ghost"}
               size="lg"
-              className={currentSlide === 1 ? "bg-cyan-600 text-white" : "text-slate-300 hover:text-cyan-400"}
+              className={currentSlide === 1 
+                ? "bg-cyan-300 text-slate-900 hover:bg-cyan-200 px-8 py-6 text-lg font-semibold" 
+                : "bg-white text-cyan-600 hover:bg-cyan-50 px-8 py-6 text-lg font-semibold"}
             >
               {t.nav.experience}
             </Button>
             <Button
               onClick={() => setCurrentSlide(2)}
-              variant={currentSlide === 2 ? "default" : "ghost"}
               size="lg"
-              className={currentSlide === 2 ? "bg-cyan-600 text-white" : "text-slate-300 hover:text-cyan-400"}
+              className={currentSlide === 2 
+                ? "bg-cyan-300 text-slate-900 hover:bg-cyan-200 px-8 py-6 text-lg font-semibold" 
+                : "bg-white text-cyan-600 hover:bg-cyan-50 px-8 py-6 text-lg font-semibold"}
             >
               {t.nav.skills}
             </Button>
             <Button
               onClick={() => setCurrentSlide(3)}
-              variant={currentSlide === 3 ? "default" : "ghost"}
               size="lg"
-              className={currentSlide === 3 ? "bg-cyan-600 text-white" : "text-slate-300 hover:text-cyan-400"}
+              className={currentSlide === 3 
+                ? "bg-cyan-300 text-slate-900 hover:bg-cyan-200 px-8 py-6 text-lg font-semibold" 
+                : "bg-white text-cyan-600 hover:bg-cyan-50 px-8 py-6 text-lg font-semibold"}
             >
               {t.nav.education}
             </Button>
