@@ -25,6 +25,27 @@ const SectorDistribution = ({ data, language = 'en' }) => {
     displayName: getText(item.sector, language)
   }));
 
+  // Custom label inside pie slices
+  const renderLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, displayName }) => {
+    const RADIAN = Math.PI / 180;
+    const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
+    const x = cx + radius * Math.cos(-midAngle * RADIAN);
+    const y = cy + radius * Math.sin(-midAngle * RADIAN);
+
+    return (
+      <text 
+        x={x} 
+        y={y} 
+        fill="white" 
+        textAnchor="middle" 
+        dominantBaseline="central"
+        style={{ fontSize: '10px', fontWeight: 'bold' }}
+      >
+        {`${(percent * 100).toFixed(0)}%`}
+      </text>
+    );
+  };
+
   return (
     <ResponsiveContainer width="100%" height="100%">
       <PieChart>
@@ -33,16 +54,21 @@ const SectorDistribution = ({ data, language = 'en' }) => {
           cx="50%"
           cy="50%"
           labelLine={false}
-          outerRadius={100}
+          outerRadius={80}
+          innerRadius={0}
           fill="#8884d8"
           dataKey="years"
-          label={({ displayName, percent }) => `${displayName} ${(percent * 100).toFixed(0)}%`}
+          label={renderLabel}
         >
           {dataWithTotal.map((entry, index) => (
             <Cell key={`cell-${index}`} fill={entry.color} />
           ))}
         </Pie>
         <Tooltip content={(props) => <CustomTooltip {...props} language={language} />} />
+        <Legend 
+          wrapperStyle={{ fontSize: '10px' }}
+          formatter={(value, entry) => entry.payload.displayName}
+        />
       </PieChart>
     </ResponsiveContainer>
   );
