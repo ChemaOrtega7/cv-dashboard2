@@ -20,7 +20,7 @@ const CareerTimeline = ({ data, language = 'en' }) => {
   const levels = ['', t.charts.levels.entry, t.charts.levels.mid, t.charts.levels.senior, t.charts.levels.lead, t.charts.levels.expert];
 
   return (
-    <ResponsiveContainer width="100%" height={300}>
+    <ResponsiveContainer width="100%" height="100%">
       <AreaChart data={data}>
         <defs>
           <linearGradient id="colorLevel" x1="0" y1="0" x2="0" y2="1">

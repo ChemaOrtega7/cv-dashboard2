@@ -149,28 +149,22 @@ const DashboardSlides = () => {
         <h2 className="text-xl md:text-3xl font-bold mb-2 md:mb-4 text-slate-100">{t.experience.title}</h2>
         
         {/* Charts - Stack vertically on mobile */}
-        <div className="flex flex-col md:grid md:grid-cols-2 gap-2 md:gap-6 mb-3 md:mb-6">
+        <div className="flex flex-col md:flex-row gap-3 md:gap-6 mb-3 md:mb-6">
           {/* Career Timeline Chart */}
-          <Card className="bg-slate-900/50 border-slate-800 shadow-[0_8px_16px_rgba(0,0,0,0.4)] transition-all overflow-hidden">
+          <Card className="bg-slate-900/50 border-slate-800 shadow-[0_8px_16px_rgba(0,0,0,0.4)] transition-all overflow-hidden flex-1">
             <CardContent className="p-2 md:p-5">
               <h3 className="text-xs md:text-base font-semibold text-slate-100 mb-1 md:mb-2">{t.analytics.careerProgression}</h3>
-              <div style={{ height: '120px' }} className="md:hidden">
-                <CareerTimeline data={cvData.careerTimeline} language={language} />
-              </div>
-              <div style={{ height: '280px' }} className="hidden md:block">
+              <div className="h-[200px] md:h-[280px]">
                 <CareerTimeline data={cvData.careerTimeline} language={language} />
               </div>
             </CardContent>
           </Card>
 
           {/* Sector Distribution */}
-          <Card className="bg-slate-900/50 border-slate-800 shadow-[0_8px_16px_rgba(0,0,0,0.4)] transition-all overflow-hidden">
+          <Card className="bg-slate-900/50 border-slate-800 shadow-[0_8px_16px_rgba(0,0,0,0.4)] transition-all overflow-hidden flex-1">
             <CardContent className="p-2 md:p-5">
               <h3 className="text-xs md:text-base font-semibold text-slate-100 mb-1 md:mb-2">{t.analytics.sectorDistribution}</h3>
-              <div style={{ height: '120px' }} className="md:hidden">
-                <SectorDistribution data={cvData.sectorDistribution} language={language} />
-              </div>
-              <div style={{ height: '280px' }} className="hidden md:block">
+              <div className="h-[200px] md:h-[280px]">
                 <SectorDistribution data={cvData.sectorDistribution} language={language} />
               </div>
             </CardContent>
@@ -303,10 +297,7 @@ const DashboardSlides = () => {
         <Card className="bg-slate-900/50 border-slate-800 shadow-[0_8px_16px_rgba(0,0,0,0.4)] transition-all">
           <CardContent className="p-2 md:p-5">
             <h3 className="text-sm md:text-lg font-semibold text-slate-100 mb-1 md:mb-2">{t.analytics.technologyExperience}</h3>
-            <div style={{ height: '150px' }} className="md:hidden">
-              <TechnologyChart data={cvData.technologyUsage} language={language} />
-            </div>
-            <div style={{ height: '320px' }} className="hidden md:block">
+            <div className="h-[200px] md:h-[320px]">
               <TechnologyChart data={cvData.technologyUsage} language={language} />
             </div>
           </CardContent>
@@ -319,17 +310,14 @@ const DashboardSlides = () => {
       <div className="max-w-7xl mx-auto w-full">
         <h2 className="text-xl md:text-3xl font-bold mb-2 md:mb-4 text-slate-100">{t.education.title}</h2>
         
-        {/* Mobile: Stack everything vertically */}
-        <div className="flex flex-col md:grid md:grid-cols-2 gap-2 md:gap-6">
+        {/* Mobile: Stack everything vertically / Desktop: Two columns */}
+        <div className="flex flex-col md:flex-row gap-3 md:gap-6">
           {/* Charts Column */}
-          <div className="flex flex-col gap-2 md:gap-4">
+          <div className="flex flex-col gap-3 md:gap-4 md:w-1/2">
             <Card className="bg-slate-900/50 border-slate-800 shadow-[0_8px_16px_rgba(0,0,0,0.4)] transition-all">
               <CardContent className="p-2 md:p-5">
                 <h3 className="text-xs md:text-base font-semibold text-slate-100 mb-1 md:mb-2">{t.education.certificationProgress}</h3>
-                <div style={{ height: '120px' }} className="md:hidden">
-                  <CertificationProgress data={cvData.certificationTimeline} language={language} />
-                </div>
-                <div style={{ height: '240px' }} className="hidden md:block">
+                <div className="h-[180px] md:h-[250px]">
                   <CertificationProgress data={cvData.certificationTimeline} language={language} />
                 </div>
               </CardContent>
@@ -338,10 +326,7 @@ const DashboardSlides = () => {
             <Card className="bg-slate-900/50 border-slate-800 shadow-[0_8px_16px_rgba(0,0,0,0.4)] transition-all">
               <CardContent className="p-2 md:p-5">
                 <h3 className="text-xs md:text-base font-semibold text-slate-100 mb-1 md:mb-2">{t.analytics.impactMetrics}</h3>
-                <div style={{ height: '120px' }} className="md:hidden">
-                  <ImpactMetrics data={cvData.impactMetrics} language={language} />
-                </div>
-                <div style={{ height: '240px' }} className="hidden md:block">
+                <div className="h-[220px] md:h-[250px]">
                   <ImpactMetrics data={cvData.impactMetrics} language={language} />
                 </div>
               </CardContent>
@@ -349,7 +334,7 @@ const DashboardSlides = () => {
           </div>
 
           {/* Education List Column */}
-          <div className="space-y-2 md:space-y-2.5">
+          <div className="space-y-2 md:space-y-2.5 md:w-1/2">
             {cvData.education.map((edu, index) => (
               <Card 
                 key={index} 
