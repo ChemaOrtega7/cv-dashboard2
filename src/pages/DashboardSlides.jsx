@@ -148,23 +148,23 @@ const DashboardSlides = () => {
       <div className="max-w-7xl mx-auto w-full h-full flex flex-col">
         <h2 className="text-xl md:text-3xl font-bold mb-2 md:mb-4 text-slate-100 flex-shrink-0">{t.experience.title}</h2>
         
-        {/* Charts - Responsive grid */}
-        <div className="grid grid-cols-2 gap-2 md:gap-6 mb-3 md:mb-6 flex-shrink-0" style={{ minHeight: '140px' }}>
-          {/* Left: Career Timeline Chart */}
+        {/* Charts - Vertical on mobile, horizontal on desktop */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-6 mb-3 md:mb-6 flex-shrink-0">
+          {/* Career Timeline Chart */}
           <Card className="bg-slate-900/50 border-slate-800 shadow-[0_8px_16px_rgba(0,0,0,0.4)] hover:shadow-[0_12px_24px_rgba(6,182,212,0.2)] transition-all overflow-hidden">
             <CardContent className="p-2 md:p-5 h-full flex flex-col">
               <h3 className="text-[10px] md:text-base font-semibold text-slate-100 mb-1 md:mb-2 flex-shrink-0">{t.analytics.careerProgression}</h3>
-              <div className="flex-1" style={{ height: '100px', minHeight: '100px' }}>
+              <div className="flex-1" style={{ height: '80px', minHeight: '80px' }}>
                 <CareerTimeline data={cvData.careerTimeline} language={language} />
               </div>
             </CardContent>
           </Card>
 
-          {/* Right: Sector Distribution */}
+          {/* Sector Distribution */}
           <Card className="bg-slate-900/50 border-slate-800 shadow-[0_8px_16px_rgba(0,0,0,0.4)] hover:shadow-[0_12px_24px_rgba(6,182,212,0.2)] transition-all overflow-hidden">
             <CardContent className="p-2 md:p-5 h-full flex flex-col">
               <h3 className="text-[10px] md:text-base font-semibold text-slate-100 mb-1 md:mb-2 flex-shrink-0">{t.analytics.sectorDistribution}</h3>
-              <div className="flex-1" style={{ height: '100px', minHeight: '100px' }}>
+              <div className="flex-1" style={{ height: '80px', minHeight: '80px' }}>
                 <SectorDistribution data={cvData.sectorDistribution} language={language} />
               </div>
             </CardContent>
@@ -314,21 +314,21 @@ const DashboardSlides = () => {
         <h2 className="text-xl md:text-3xl font-bold mb-2 md:mb-4 text-slate-100">{t.education.title}</h2>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 md:gap-6 flex-1">
-          {/* Left Column: Charts */}
-          <div className="flex flex-row lg:flex-col gap-2 md:gap-4" style={{ minHeight: '120px' }}>
-            <Card className="bg-slate-900/50 border-slate-800 shadow-[0_8px_16px_rgba(0,0,0,0.4)] hover:shadow-[0_12px_24px_rgba(6,182,212,0.2)] transition-all flex-1">
-              <CardContent className="p-2 md:p-5 h-full flex flex-col">
+          {/* Left Column: Charts - Vertical on mobile */}
+          <div className="flex flex-col gap-2 md:gap-4">
+            <Card className="bg-slate-900/50 border-slate-800 shadow-[0_8px_16px_rgba(0,0,0,0.4)] hover:shadow-[0_12px_24px_rgba(6,182,212,0.2)] transition-all">
+              <CardContent className="p-2 md:p-5 flex flex-col">
                 <h3 className="text-[10px] md:text-base font-semibold text-slate-100 mb-1 md:mb-2">{t.education.certificationProgress}</h3>
-                <div className="flex-1 min-h-0" style={{ minHeight: '80px' }}>
+                <div style={{ height: '80px', minHeight: '80px' }}>
                   <CertificationProgress data={cvData.certificationTimeline} language={language} />
                 </div>
               </CardContent>
             </Card>
 
-            <Card className="bg-slate-900/50 border-slate-800 shadow-[0_8px_16px_rgba(0,0,0,0.4)] hover:shadow-[0_12px_24px_rgba(6,182,212,0.2)] transition-all flex-1">
-              <CardContent className="p-2 md:p-5 h-full flex flex-col">
+            <Card className="bg-slate-900/50 border-slate-800 shadow-[0_8px_16px_rgba(0,0,0,0.4)] hover:shadow-[0_12px_24px_rgba(6,182,212,0.2)] transition-all">
+              <CardContent className="p-2 md:p-5 flex flex-col">
                 <h3 className="text-[10px] md:text-base font-semibold text-slate-100 mb-1 md:mb-2">{t.analytics.impactMetrics}</h3>
-                <div className="flex-1 min-h-0" style={{ minHeight: '80px' }}>
+                <div style={{ height: '80px', minHeight: '80px' }}>
                   <ImpactMetrics data={cvData.impactMetrics} language={language} />
                 </div>
               </CardContent>
