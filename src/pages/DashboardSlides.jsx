@@ -69,6 +69,19 @@ const DashboardSlides = () => {
             <h1 className="text-2xl md:text-6xl font-bold mb-2 md:mb-5 text-slate-100">
               {cvData.personal.name}
             </h1>
+            
+            {/* Contact - Mobile only, below name */}
+            <div className="flex flex-wrap gap-2 text-slate-400 mb-3 md:hidden">
+              <div className="flex items-center gap-1">
+                <Mail className="w-3 h-3 text-cyan-400" />
+                <span className="text-[10px]">{cvData.personal.email}</span>
+              </div>
+              <div className="flex items-center gap-1">
+                <Phone className="w-3 h-3 text-cyan-400" />
+                <span className="text-[10px]">{cvData.personal.phone}</span>
+              </div>
+            </div>
+            
             <p className="text-base md:text-3xl text-cyan-400 font-light mb-2 md:mb-5">
               {getText(cvData.personal.title, language)}
             </p>
@@ -125,19 +138,19 @@ const DashboardSlides = () => {
           </div>
         </div>
 
-        {/* Contact - Full Width Below */}
-        <div className="flex flex-wrap justify-center gap-3 md:gap-10 text-slate-400 pt-3 md:pt-8 border-t border-slate-800">
-          <div className="flex items-center gap-1 md:gap-2">
-            <Mail className="w-3 h-3 md:w-5 md:h-5 text-cyan-400" />
-            <span className="text-[10px] md:text-base">{cvData.personal.email}</span>
+        {/* Contact - Desktop only, Full Width Below */}
+        <div className="hidden md:flex flex-wrap justify-center gap-10 text-slate-400 pt-8 border-t border-slate-800">
+          <div className="flex items-center gap-2">
+            <Mail className="w-5 h-5 text-cyan-400" />
+            <span className="text-base">{cvData.personal.email}</span>
           </div>
-          <div className="flex items-center gap-1 md:gap-2">
-            <Phone className="w-3 h-3 md:w-5 md:h-5 text-cyan-400" />
-            <span className="text-[10px] md:text-base">{cvData.personal.phone}</span>
+          <div className="flex items-center gap-2">
+            <Phone className="w-5 h-5 text-cyan-400" />
+            <span className="text-base">{cvData.personal.phone}</span>
           </div>
-          <div className="flex items-center gap-1 md:gap-2">
-            <MapPin className="w-3 h-3 md:w-5 md:h-5 text-cyan-400" />
-            <span className="text-[10px] md:text-base">{getText(cvData.personal.location, language)}</span>
+          <div className="flex items-center gap-2">
+            <MapPin className="w-5 h-5 text-cyan-400" />
+            <span className="text-base">{getText(cvData.personal.location, language)}</span>
           </div>
         </div>
       </div>
