@@ -145,26 +145,26 @@ const DashboardSlides = () => {
 
     // Slide 2: Experience
     <div key="experience" className="h-full w-full flex flex-col px-4 md:px-12 py-4 md:py-8 overflow-y-auto">
-      <div className="max-w-7xl mx-auto w-full h-full flex flex-col">
-        <h2 className="text-xl md:text-3xl font-bold mb-2 md:mb-4 text-slate-100 flex-shrink-0">{t.experience.title}</h2>
+      <div className="max-w-7xl mx-auto w-full">
+        <h2 className="text-xl md:text-3xl font-bold mb-2 md:mb-4 text-slate-100">{t.experience.title}</h2>
         
         {/* Charts - Vertical on mobile, horizontal on desktop */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-6 mb-3 md:mb-6 flex-shrink-0">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-6 mb-3 md:mb-6">
           {/* Career Timeline Chart */}
-          <Card className="bg-slate-900/50 border-slate-800 shadow-[0_8px_16px_rgba(0,0,0,0.4)] hover:shadow-[0_12px_24px_rgba(6,182,212,0.2)] transition-all overflow-hidden">
-            <CardContent className="p-2 md:p-5 h-full flex flex-col">
-              <h3 className="text-[10px] md:text-base font-semibold text-slate-100 mb-1 md:mb-2 flex-shrink-0">{t.analytics.careerProgression}</h3>
-              <div className="flex-1" style={{ height: '80px', minHeight: '80px' }}>
+          <Card className="bg-slate-900/50 border-slate-800 shadow-[0_8px_16px_rgba(0,0,0,0.4)] transition-all overflow-hidden">
+            <CardContent className="p-2 md:p-5">
+              <h3 className="text-[10px] md:text-base font-semibold text-slate-100 mb-1 md:mb-2">{t.analytics.careerProgression}</h3>
+              <div className="h-[70px] md:h-[200px]">
                 <CareerTimeline data={cvData.careerTimeline} language={language} />
               </div>
             </CardContent>
           </Card>
 
           {/* Sector Distribution */}
-          <Card className="bg-slate-900/50 border-slate-800 shadow-[0_8px_16px_rgba(0,0,0,0.4)] hover:shadow-[0_12px_24px_rgba(6,182,212,0.2)] transition-all overflow-hidden">
-            <CardContent className="p-2 md:p-5 h-full flex flex-col">
-              <h3 className="text-[10px] md:text-base font-semibold text-slate-100 mb-1 md:mb-2 flex-shrink-0">{t.analytics.sectorDistribution}</h3>
-              <div className="flex-1" style={{ height: '80px', minHeight: '80px' }}>
+          <Card className="bg-slate-900/50 border-slate-800 shadow-[0_8px_16px_rgba(0,0,0,0.4)] transition-all overflow-hidden">
+            <CardContent className="p-2 md:p-5">
+              <h3 className="text-[10px] md:text-base font-semibold text-slate-100 mb-1 md:mb-2">{t.analytics.sectorDistribution}</h3>
+              <div className="h-[70px] md:h-[200px]">
                 <SectorDistribution data={cvData.sectorDistribution} language={language} />
               </div>
             </CardContent>
@@ -172,7 +172,7 @@ const DashboardSlides = () => {
         </div>
 
         {/* Experience Cards - Expandibles con flechita */}
-        <div className="space-y-2 md:space-y-3 overflow-y-auto flex-1 pr-1 md:pr-2">
+        <div className="space-y-2 md:space-y-3">
           {cvData.experience.map((exp) => (
             <Card 
               key={exp.id} 
@@ -310,25 +310,26 @@ const DashboardSlides = () => {
 
     // Slide 4: Education
     <div key="education" className="h-full w-full flex flex-col px-4 md:px-12 py-4 md:py-8 overflow-y-auto">
-      <div className="max-w-7xl mx-auto w-full h-full flex flex-col">
+      <div className="max-w-7xl mx-auto w-full">
         <h2 className="text-xl md:text-3xl font-bold mb-2 md:mb-4 text-slate-100">{t.education.title}</h2>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 md:gap-6 flex-1">
-          {/* Left Column: Charts - Vertical on mobile */}
+        {/* Charts - Vertical stack on mobile, side by side with education on desktop */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 md:gap-6">
+          {/* Left Column: Charts */}
           <div className="flex flex-col gap-2 md:gap-4">
-            <Card className="bg-slate-900/50 border-slate-800 shadow-[0_8px_16px_rgba(0,0,0,0.4)] hover:shadow-[0_12px_24px_rgba(6,182,212,0.2)] transition-all">
-              <CardContent className="p-2 md:p-5 flex flex-col">
+            <Card className="bg-slate-900/50 border-slate-800 shadow-[0_8px_16px_rgba(0,0,0,0.4)] transition-all">
+              <CardContent className="p-2 md:p-5">
                 <h3 className="text-[10px] md:text-base font-semibold text-slate-100 mb-1 md:mb-2">{t.education.certificationProgress}</h3>
-                <div style={{ height: '80px', minHeight: '80px' }}>
+                <div className="h-[70px] md:h-[180px]">
                   <CertificationProgress data={cvData.certificationTimeline} language={language} />
                 </div>
               </CardContent>
             </Card>
 
-            <Card className="bg-slate-900/50 border-slate-800 shadow-[0_8px_16px_rgba(0,0,0,0.4)] hover:shadow-[0_12px_24px_rgba(6,182,212,0.2)] transition-all">
-              <CardContent className="p-2 md:p-5 flex flex-col">
+            <Card className="bg-slate-900/50 border-slate-800 shadow-[0_8px_16px_rgba(0,0,0,0.4)] transition-all">
+              <CardContent className="p-2 md:p-5">
                 <h3 className="text-[10px] md:text-base font-semibold text-slate-100 mb-1 md:mb-2">{t.analytics.impactMetrics}</h3>
-                <div style={{ height: '80px', minHeight: '80px' }}>
+                <div className="h-[70px] md:h-[180px]">
                   <ImpactMetrics data={cvData.impactMetrics} language={language} />
                 </div>
               </CardContent>
@@ -336,7 +337,7 @@ const DashboardSlides = () => {
           </div>
 
           {/* Right Column: Education List */}
-          <div className="overflow-y-auto pr-1 md:pr-2 space-y-2 md:space-y-2.5">
+          <div className="space-y-2 md:space-y-2.5">
             {cvData.education.map((edu, index) => (
               <Card 
                 key={index} 
