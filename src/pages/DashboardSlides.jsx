@@ -5,7 +5,7 @@ import { getText, getTextArray } from '../utils/languageHelpers';
 import { 
   Briefcase, Award, Code, Mail, Phone, MapPin, 
   Download, Languages, TrendingUp, Target, Calendar,
-  ChevronDown, ChevronUp
+  ChevronDown, ChevronUp, Share2
 } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '../components/ui/card';
@@ -22,6 +22,28 @@ const DashboardSlides = () => {
   const { language, toggleLanguage, t } = useLanguage();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [expandedExp, setExpandedExp] = useState(null);
+  const [showCopied, setShowCopied] = useState(false);
+
+  const handleShare = async () => {
+    const shareData = {
+      title: 'CV - José Manuel Ortega',
+      text: language === 'en' ? 'Check out my CV!' : '¡Mira mi CV!',
+      url: window.location.href
+    };
+
+    if (navigator.share) {
+      try {
+        await navigator.share(shareData);
+      } catch (err) {
+        // User cancelled or error
+      }
+    } else {
+      // Fallback: copy to clipboard
+      await navigator.clipboard.writeText(window.location.href);
+      setShowCopied(true);
+      setTimeout(() => setShowCopied(false), 2000);
+    }
+  };
 
   const handleDownloadCV = () => {
     const fileName = language === 'en' 
@@ -433,16 +455,37 @@ const DashboardSlides = () => {
             </Button>
           </nav>
 
-          {/* Language Toggle - Right side on desktop */}
-          <Button 
-            onClick={toggleLanguage}
-            variant="outline"
-            size="sm"
-            className="hidden sm:flex border-slate-700 text-slate-300 hover:bg-slate-800 hover:text-cyan-400"
-          >
-            <Languages className="w-4 h-4 mr-1" />
-            {language === 'en' ? 'ES' : 'EN'}
-          </Button>
+          {/* Right side buttons */}
+          <div className="flex items-center gap-1 md:gap-2">
+            {/* Share Button */}
+            <div className="relative">
+              <Button 
+                onClick={handleShare}
+                variant="outline"
+                size="sm"
+                className="border-slate-700 text-slate-300 hover:bg-slate-800 hover:text-cyan-400 text-[10px] md:text-sm px-1.5 md:px-3"
+              >
+                <Share2 className="w-3 h-3 md:w-4 md:h-4 md:mr-1" />
+                <span className="hidden md:inline">{language === 'en' ? 'Share' : 'Compartir'}</span>
+              </Button>
+              {showCopied && (
+                <div className="absolute top-full mt-1 left-1/2 -translate-x-1/2 bg-emerald-600 text-white text-[10px] px-2 py-1 rounded whitespace-nowrap">
+                  {language === 'en' ? 'Link copied!' : '¡Link copiado!'}
+                </div>
+              )}
+            </div>
+
+            {/* Language Toggle - Right side on desktop */}
+            <Button 
+              onClick={toggleLanguage}
+              variant="outline"
+              size="sm"
+              className="hidden sm:flex border-slate-700 text-slate-300 hover:bg-slate-800 hover:text-cyan-400"
+            >
+              <Languages className="w-4 h-4 mr-1" />
+              {language === 'en' ? 'ES' : 'EN'}
+            </Button>
+          </div>
         </div>
       </header>
 
